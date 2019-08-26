@@ -6,16 +6,23 @@ using namespace std;
 int main(){
 
     grafo g(63);
-
-    adicionar_aresta(g,1,2);
-    adicionar_aresta(g,1,3);
-    adicionar_aresta(g,1,4);
-    adicionar_aresta(g,2,3);
-    adicionar_aresta(g,2,4);
+    cliques q;
 
     criar_grafo(g);
 
+    cout << "BFS NO GRAFO: \n\n";
     bfs(g, 1);
+    cout << "\n";
+
+    startcliques(g, q);
+
+    cout << "CLIQUES DO GRAFO: \n\n";
+    printcliques(q);
+    cout << "\n";
+
+    cout << "COEFICIENTES DE AGLOMERACAO DOS VERTICES: \n\n";
+    aglomeracao(q, g);
+    cout << "\n";
 
     return 0;
 }
