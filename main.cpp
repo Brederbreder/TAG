@@ -10,17 +10,26 @@ int main(){
 
     criar_grafo(g);
 
-    cout << "BFS NO GRAFO: \n\n";
+    cout << "\n##################################\n";
+    cout << "########## BFS NO GRAFO ##########\n";
+    cout << "##################################\n\n";
+
     bfs(g, 1);
     cout << "\n";
 
     startcliques(g, q);
 
-    cout << "CLIQUES DO GRAFO: \n\n";
+    cout << "######################################\n";
+    cout << "########## CLIQUES DO GRAFO ##########\n";
+    cout << "######################################\n\n";
+
     printcliques(q);
     cout << "\n";
 
-    cout << "COEFICIENTES DE AGLOMERACAO DOS VERTICES: \n\n";
+    cout << "##############################################################\n";
+    cout << "########## COEFICIENTES DE AGLOMERACAO DOS VERTICES ##########\n";
+    cout << "##############################################################\n\n";
+
     aglomeracao(q, g);
     cout << "\n";
 

@@ -9,13 +9,13 @@
 
     void adicionar_aresta(grafo& g, int origem, int destino);
 
-    void bfsAuxiliar(grafo g, int vertice, vector<bool>& visitados);
+    void bfsAuxiliar(grafo& g, int vertice, vector<bool>& visitados);
 
-    void bfs(grafo g, int vertice);
+    void bfs(grafo& g, int vertice);
 
     void criar_grafo(grafo& g);
 
-    vector<int> intersecao(vector<int> a, vector<int> b);
+    vector<int> intersecao(vector<int>& a, vector<int>& b);
 
     void bronkerbosch(grafo& g, cliques& q, vector<int>& R, vector<int>& P, vector<int>& X);
 

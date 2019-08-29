@@ -7,12 +7,12 @@ void adicionar_aresta(grafo& g, int origem, int destino){
     g[destino].push_back(origem);
 }
 
-void bfs(grafo g, int vertice){
+void bfs(grafo& g, int vertice){
     vector<bool> visitados(g.size(), false);  
     bfsAuxiliar(g, vertice, visitados);
 }
 
-void bfsAuxiliar(grafo g, int vertice, vector<bool>& visitados){
+void bfsAuxiliar(grafo& g, int vertice, vector<bool>& visitados){
     queue<int> fila;
     fila.push(vertice);
     visitados[vertice] = true;
@@ -51,7 +51,7 @@ void criar_grafo(grafo& g){
     }
 }
 
-vector<int> intersecao(vector<int> a, vector<int> b){
+vector<int> intersecao(vector<int>& a, vector<int>& b){
     vector<int> resultado;
 
     for(int i=0; i<a.size(); i++){
@@ -142,6 +142,8 @@ void aglomeracao(cliques& q, grafo& g){
         cout << "coeficiente de aglomeracao do vertice " << i << " = " << aglomeracao << "\n";
     }
 
-    cout << "\ncoeficiente de aglomeracao medio do grafo = " << media_aglomeracao / ((double)(g.size()-1)) << "\n"; 
+    cout << "\n################################################################\n";
+    cout << "##### coeficiente de aglomeracao medio do grafo = " << media_aglomeracao / ((double)(g.size()-1)) << " #####\n"; 
+    cout << "################################################################\n";
 
 }
