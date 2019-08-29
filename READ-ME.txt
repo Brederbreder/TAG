@@ -1,0 +1,13 @@
+TEORIA E APLICAÇÃO DE GRAFOS 2019/02
+MATHEUS BREDER BRANQUINHO NOGUEIRA  
+17/0018997
+
+TRABALHO 1
+
+compilar o programa utilizando:
+
+g++ -std=c++11 -c grafo.cpp
+g++ -std=c++11 -o exec main.cpp grafo.o
+./exec
+
+o programa será executado e printando na tela as requisições na especificação do trabalho.
