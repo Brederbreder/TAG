@@ -26,7 +26,7 @@ void criar_arestas(grafo& g, string filename){
     while(getline(file, line)){
         stringstream formato(line);
         formato >> orig >> dest;
-        g[orig].adj.push_back(g[dest]);
+        g[dest].adj.push_back(g[orig]);
     }
 }
 
