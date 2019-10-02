@@ -34,7 +34,7 @@ void print_grafo(grafo& g){
     for(auto d:g){
         cout << d.first << ": ";
         for (auto adj : d.second.adj) {
-            cout << adj.codigo << ",";
+            cout << adj.codigo << " ";
         }
         cout << "\n";
      }
