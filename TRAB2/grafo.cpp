@@ -5,15 +5,16 @@ using namespace std;
 
 void criar_vertices(grafo& g, string filename){
     fstream file;
-    int a, b;
+    int a, b, c;
     string line;
     file.open(filename);
     while(getline(file, line)){
         stringstream formato(line);
-        formato >> a >> b;
+        formato >> a >> b >> c;
         vertice v;
         v.codigo = a;
         v.peso = b;
+        v.num = c;
         g[a] = v;
     }
 }
@@ -38,4 +39,38 @@ void print_grafo(grafo& g){
         }
         cout << "\n";
      }
+}
+
+void dfs_auxiliar(grafo& g, int v, map<int, bool>& visitados, vector<int>& dfsResultado){
+    visitados[v] = true;
+
+    for(auto p:g[v].adj){
+        if(!visitados[p.codigo]){
+            dfs_auxiliar(g, p.codigo, visitados, dfsResultado);
+        }
+    }
+
+    dfsResultado.push_back(v);
+}
+
+void dfs(grafo& g){
+    map<int, bool> visitados;
+    vector<int> dfsResultado;
+    for(auto p:g){
+        visitados[p.first] = false;
+    }
+
+    for(int i=0; i < g.size(); i++){
+        for(auto p:g){
+            if(p.second.num == i){
+                dfs_auxiliar(g, p.first, visitados, dfsResultado);
+            }
+        }
+    }
+
+    cout << "dfs";
+    for(auto x:dfsResultado){
+        cout << "->" << x;
+    }
+    cout << "\n";
 }
