@@ -31,6 +31,18 @@ void criar_arestas(grafo& g, string filename){
     }
 }
 
+void graus_de_chegada(grafo& g){
+    for(auto p:g){
+        p.second.grauDeChegada = 0;
+    }   
+
+    for(auto p:g){
+        for(auto x:p.second.adj){
+            g[x.codigo].grauDeChegada++;
+        }
+    } 
+}
+
 void print_grafo(grafo& g){
     for(auto d:g){
         cout << d.first << ": ";

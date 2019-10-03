@@ -11,6 +11,7 @@ struct vertice{
     int codigo;
     int peso;
     int num;
+    int grauDeChegada;
     vector<vertice> adj;
 };
 
@@ -21,5 +22,6 @@ void criar_arestas(grafo& g, string filename);
 void print_grafo(grafo& g);
 void dfs(grafo& g);
 void dfs_auxiliar(grafo& g, int v, map<int,bool>& visitados, vector<int>& dfsResultado);
+void graus_de_chegada(grafo& g);
 
 #endif
