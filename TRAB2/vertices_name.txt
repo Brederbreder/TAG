@@ -1,34 +1,34 @@
-calculo1            
-isc
-apc
-infosoc
-ftc
-circuitos_logicos
-laboratorio_cl
-calculo2
-ial
-estrutura_de_dados
-oac
-tp1
-a1
-calculo_numerico
-pe
-lc1
-tp2
-tag
-redes
-lp
-prog_conc
-engenharia_sof
-banco_dados
-iia
-sb
-so
-aut
-si
-ce
-paa
-compiladores
-seg_comp
-mc
-tac
+CALCULO 1                      
+INTROD SISTEMAS COMPUTACIONAIS 
+ALG PROGR COMPUTADORES         
+INFORMATICA E SOCIEDADE        
+FUND TEOR COMPUTACAO           
+CIRCUITOS LOGICOS              
+LAB CIRCUITOS LOGICOS          
+CALCULO 2                      
+INTRODUCAO A ALGEBRA LINEAR    
+ESTRUTURA DE DADOS             
+ORG ARQUITETURA DE COMPUTADORES
+TECNICAS DE PROGR 1            
+ALGEBRA 1                      
+CALCULO NUMERICO               
+PROBABILIDADE E ESTATISTICA    
+LOGICA COMPUTACIONAL 1         
+TECNICAS DE PROG 2             
+TEORIA E APLIC DE GRAFOS       
+REDES DE COMP                  
+LINGUAGENS DE PROGRAMACAO      
+PROGRAMACAO CONCORRENTE        
+ENGENHARIA DE SOFTWARE         
+BANCO DE DADOS                 
+INTRO INTELIGENCIA ARTIFICIAL  
+SOFTWARE BASICO                
+SISTEMA OPERACIONAL            
+AUTOMATOS E COMPU              
+SISTEMAS DE INFORMACAO         
+COMPUTACAO EXPERIMENTAL        
+PROJETO ANALISE DE ALG         
+COMPILADORES                   
+SEGURANCA COMPUTACIONAL        
+METODOLOGIA CIENTIFICA         
+TOPICOS AVANC DE COMP          
