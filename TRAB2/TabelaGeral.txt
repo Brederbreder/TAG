@@ -1,0 +1,36 @@
+TABELA COM DEPENDENCIAS PARA O CPM
+NOME                            CODIGO  PESO    PRIORIDADE   PRE-REQUISITOS    
+CALCULO 1                       113034  6       1            -   
+INTROD SISTEMAS COMPUTACIONAIS  113468  4       2            -   
+ALG PROGR COMPUTADORES          113476  6       3            -   
+INFORMATICA E SOCIEDADE         116726  2       4            -
+FUND TEOR COMPUTACAO            113450  4       5            -
+CIRCUITOS LOGICOS               129011  4       6            3
+LAB CIRCUITOS LOGICOS           129020  2       7            3
+CALCULO 2                       113042  6       8            1   
+INTRODUCAO A ALGEBRA LINEAR     113093  4       9            -            
+ESTRUTURA DE DADOS              116319  4       10           3   
+ORG ARQUITETURA DE COMPUTADORES 116394  4       11           6 ^ 7
+TECNICAS DE PROGR 1             117889  4       12           10 << 3  
+ALGEBRA 1                       113107  4       13           -
+CALCULO NUMERICO                113417  4       14           1 << 8   
+PROBABILIDADE E ESTATISTICA     115045  4       15           1   
+LOGICA COMPUTACIONAL 1          117366  4       16           5 v 10 << 3  
+TECNICAS DE PROG 2              117897  4       17           12 << 10 << 3   
+TEORIA E APLIC DE GRAFOS        117901  4       18           10 << 3   
+REDES DE COMP                   116572  4       19           10 << 3
+LINGUAGENS DE PROGRAMACAO       116343  4       20           10 << 3
+PROGRAMACAO CONCORRENTE         117935  4       21           11 ^ (17 << 12 << 10 << 3)   
+ENGENHARIA DE SOFTWARE          116441  4       22           20 v 12
+BANCO DE DADOS                  116378  4       23           10
+INTRO INTELIGENCIA ARTIFICIAL   116653  4       24           10                 
+SOFTWARE BASICO                 116432  4       25           11 ^ 10   
+SISTEMA OPERACIONAL             117960  4       26           21    
+AUTOMATOS E COMPU               116882  6       27           13
+SISTEMAS DE INFORMACAO          116416  4       28           10   
+COMPUTACAO EXPERIMENTAL         117943  4       29           15 ^ 10
+PROJETO ANALISE DE ALG          117536  4       30           1 ^ 12
+COMPILADORES                    117951  4       31           20 ^ 25 ^ 27   
+SEGURANCA COMPUTACIONAL         117927  4       32           19
+METODOLOGIA CIENTIFICA          117919  2       33           - 
+TOPICOS AVANC DE COMP           116297  4       34           -
