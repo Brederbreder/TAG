@@ -1,35 +1,37 @@
-circuitos_logicos Algoritimos_Programacao_Computadores                   
-laboratorio_cl Algoritimos_Programacao_Computadores                   
-calculo2 calculo1                   
-estrutura_de_dados Algoritimos_Programacao_Computadores                   
-oac circuitos_logicos             
-oac laboratorio_cl
-tp1 estrutura_de_dados                   
-calculo_numerico calculo2                   
-pe calculo1                   
-lc1 ftc            
-lc1 estrutura_de_dados
-tp2 tp1                   
-tag estrutura_de_dados                   
-redes estrutura_de_dados                   
-lp estrutura_de_dados                   
-prog_conc oac             
-prog_conc tp2
-engenharia_sof lp            
-engenharia_sof tp1     
-iia estrutura_de_dados                   
-sb estrutura_de_dados 
-sb oac
-so prog_conc
-automatos a1
-si estrutura_de_dados
-si banco_dados
-comp_exp estrutura_de_dados
-comp_exp pe
-paa calculo1
-paa tp1
-paa estrutura_de_dados
-compiladores lp
-compiladores sb
-compiladores automatos
-seg_comp redes          
+CIRCUITOS LOGICOS ALG PRCOMPUTADORES                   
+LAB CIRCUITOS LOGICOS ALG PRCOMPUTADORES                   
+CALCULO 2 CALCULO 1                   
+ESTRUTURA DE DADOS ALG PRCOMPUTADORES                   
+ORG ARQUITETURA DE COMPUTADORES CIRCUITOS LOGICOS             
+ORG ARQUITETURA DE COMPUTADORES LAB CIRCUITOS LOGICOS
+TECNICAS DE PROGR 1 ESTRUTURA DE DADOS                   
+CALCULO NUMERICO CALCULO 2                   
+PROBABILIDADE E ESTATISTICA CALCULO 1                   
+LOGICA COMPUTACIONAL 1 FUND TEOR COMPUTACAO            
+LOGICA COMPUTACIONAL 1 ESTRUTURA DE DADOS
+TECNICAS DE PROG 2 TECNICAS DE PROGR 1                   
+TEORIA E APLIC DE GRAFOS ESTRUTURA DE DADOS                   
+REDES DE COMP ESTRUTURA DE DADOS                   
+LINGUAGENS DE PROGRAMACAO ESTRUTURA DE DADOS                   
+PROGRAMACAO CONCORRENTE ORG ARQUITETURA DE COMPUTADORES             
+PROGRAMACAO CONCORRENTE TECNICAS DE PROG 2
+ENGENHARIA DE SOFTWARE LINGUAGENS DE PROGRAMACAO            
+ENGENHARIA DE SOFTWARE TECNICAS DE PROGR 1
+BANCO DE DADOS ESTRUTURA DE DADOS
+BANCO DE DADOS PROBABILIDADE E ESTATISTICA
+INTRO INTELIGENCIA ARTIFICIAL ESTRUTURA DE DADOS                   
+SOFTWARE BASICO ESTRUTURA DE DADOS 
+SOFTWARE BASICO ORG ARQUITETURA DE COMPUTADORES
+SISTEMA OPERACIONAL PROGRAMACAO CONCORRENTE
+AUTOMATOS E COMPU ALGEBRA 1
+SISTEMAS DE INFORMACAO ESTRUTURA DE DADOS
+SISTEMAS DE INFORMACAO BANCO DE DADOS   
+COMPUTACAO EXPERIMENTAL ESTRUTURA DE DADOS
+COMPUTACAO EXPERIMENTAL PROBABILIDADE E ESTATISTICA
+PROJETO ANALISE DE ALG CALCULO 1
+PROJETO ANALISE DE ALG TECNICAS DE PROGR 1
+PROJETO ANALISE DE ALG ESTRUTURA DE DADOS
+COMPILADORES LINGUAGENS DE PROGRAMACAO
+COMPILADORES SOFTWARE BASICO
+COMPILADORES AUTOMATOS E COMPU
+SEGURANCA COMPUTACIONAL REDES DE COMP         
