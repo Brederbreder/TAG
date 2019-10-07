@@ -6,15 +6,17 @@ using namespace std;
 void criar_vertices(grafo& g, string filename){
     fstream file;
     int a, b, c;
+    string d;
     string line;
     file.open(filename);
     while(getline(file, line)){
         stringstream formato(line);
-        formato >> a >> b >> c;
+        formato >> a >> b >> c >> d;
         vertice v;
         v.codigo = a;
         v.peso = b;
         v.num = c;
+        v.nome = d;
         g[a] = v;
     }
 }
@@ -44,35 +46,43 @@ void graus_de_chegada(grafo& g){
 }
 
 void print_grafo(grafo& g){
-    for(auto d:g){
-        cout << d.first << ": ";
-        for (auto adj : d.second.adj) {
-            cout << adj.codigo << " ";
+    for(int i=1; i<=g.size(); i++){
+        for(auto d:g){
+            if(d.second.num == i){
+                cout << d.second.nome << ": ";
+                for (auto adj : d.second.adj){
+                    cout << adj.nome << ", ";
+                }
+                cout << "\n";
+            }
         }
-        cout << "\n";
-     }
+    }
 }
 
 void dfs_auxiliar(grafo& g, int v, map<int, bool>& visitados, vector<int>& dfsResultado){
     visitados[v] = true;
 
+    auto x = find(dfsResultado.begin(), dfsResultado.end(), v);
+    if(x == dfsResultado.end()){
+        dfsResultado.push_back(v);
+    }
+
     for(auto p:g[v].adj){
-        if(!visitados[p.codigo]){
+        if(visitados[p.codigo] == false){
             dfs_auxiliar(g, p.codigo, visitados, dfsResultado);
         }
     }
-
-    dfsResultado.push_back(v);
 }
 
-void dfs(grafo& g){
+vector<int> dfs(grafo& g){
     map<int, bool> visitados;
     vector<int> dfsResultado;
+
     for(auto p:g){
         visitados[p.first] = false;
     }
 
-    for(int i=0; i < g.size(); i++){
+    for(int i=1; i <= g.size(); i++){
         for(auto p:g){
             if(p.second.num == i){
                 dfs_auxiliar(g, p.first, visitados, dfsResultado);
@@ -80,9 +90,34 @@ void dfs(grafo& g){
         }
     }
 
-    cout << "dfs";
+    cout << "dfs:\n";
     for(auto x:dfsResultado){
-        cout << "->" << x;
+        cout << " -> " << g[x].nome << "\n";
     }
     cout << "\n";
+
+    return dfsResultado;
+}
+
+void caminho_critico(grafo& g, vector<int>& topologia){
+    map<int,int> finalizar;
+    vector<int> caminho;
+
+    for(auto p:g){
+        finalizar[p.first] = 0; 
+    }
+
+    for(auto p:topologia){
+        for(auto x:g){
+            for(auto y:x.second.adj){
+                if(x.first == p){
+                    finalizar[y.codigo] = max(finalizar[y.codigo], finalizar[x.first] + y.peso);
+                }
+            }
+        }
+    }
+
+    cout << "peso do caminho critico: ";
+
+    cout << "\n\n";
 }

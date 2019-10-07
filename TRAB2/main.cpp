@@ -29,9 +29,13 @@ int main(){
     cout << "################################\n";
     cout << "####### ORDEM TOPOLOGICA #######\n";
     cout << "################################\n\n\n";
-    dfs(g);
+
+    vector<int> topologia;
+    topologia = dfs(g);
 
     cout << "\n\n";
+
+    caminho_critico(g, topologia);
 
     return 0;
 }
