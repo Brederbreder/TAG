@@ -107,17 +107,21 @@ void caminho_critico(grafo& g, vector<int>& topologia){
         finalizar[p.first] = 0; 
     }
 
-    for(auto p:topologia){
-        for(auto x:g){
-            for(auto y:x.second.adj){
-                if(x.first == p){
-                    finalizar[y.codigo] = max(finalizar[y.codigo], finalizar[x.first] + y.peso);
-                }
+    
+    for(auto x:topologia){
+        for(auto y:g){
+            for(auto p:y.second.adj){
+                finalizar[p.codigo] = max(finalizar[p.codigo], finalizar[y.second.codigo] + g[y.first].peso);
             }
         }
     }
 
-    cout << "peso do caminho critico: ";
+    cout << "peso do caminho critico: \n";
+
+    for(auto y:finalizar){
+        cout << "peso de " << g[y.first].nome << ":" << y.second << "\n";
+    }
+    
 
     cout << "\n\n";
 }
