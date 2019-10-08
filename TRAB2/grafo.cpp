@@ -41,11 +41,11 @@ void print_grafo(grafo& g){
     for(int i=1; i<=g.size(); i++){
         for(auto d:g){
             if(d.second.num == i){
-                cout << d.second.nome << ": ";
+                cout << d.second.nome << "(" << d.second.codigo << ")" << ": ";
                 for (auto adj : d.second.adj){
-                    cout << adj.nome << ", ";
+                    cout << adj.nome << "(" << adj.codigo << ")" << ", ";
                 }
-                cout << "\n";
+                cout << "\n\n";
             }
         }
     }
@@ -84,7 +84,7 @@ vector<int> dfs(grafo& g){
 
     cout << "dfs:\n";
     for(auto x:dfsResultado){
-        cout << " -> " << g[x].nome << "\n";
+        cout << " -> " << g[x].nome << "(" << g[x].codigo << ")" << "\n";
     }
     cout << "\n";
 
@@ -158,14 +158,25 @@ void caminho_critico(grafo& g, vector<int>& topologia){
         }
     }
 
-    cout << "\n\n";
     cout << "caminho de maiores pesos: " << max << " e " << max2 << "\n\n";
 
     for(auto x:todosCaminhos){
-        for(auto p: x.first){
-            cout << p << " -> ";
-        }
-        cout << "peso = " << x.second - g[x.first.back()].peso  << "\n"; 
+        if((x.second - g[x.first.back()].peso) == max){
+            for(auto p: x.first){
+                cout << p << " -> ";
+            }
+            cout << "com peso total = " << x.second - g[x.first.back()].peso  << "\n";
+        } 
+    }
+
+    for(auto x:todosCaminhos){
+        if((x.second - g[x.first.back()].peso) == max2){
+            for(auto p: x.first){
+                cout << p << " -> ";
+            }
+            cout << "peso = " << x.second - g[x.first.back()].peso  << "\n";
+            break;
+        } 
     }
 
     cout << "\n\n";
