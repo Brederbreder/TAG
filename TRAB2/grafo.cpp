@@ -17,6 +17,8 @@ void criar_vertices(grafo& g, string filename){
         v.peso = b;
         v.num = c;
         v.nome = d;
+        v.grauDeChegada = 0;
+        v.grauDeSaida = 0;
         g[a] = v;
     }
 }
@@ -30,19 +32,9 @@ void criar_arestas(grafo& g, string filename){
         stringstream formato(line);
         formato >> orig >> dest;
         g[dest].adj.push_back(g[orig]);
+        g[orig].grauDeChegada++;
+        g[dest].grauDeSaida++;
     }
-}
-
-void graus_de_chegada(grafo& g){
-    for(auto p:g){
-        p.second.grauDeChegada = 0;
-    }   
-
-    for(auto p:g){
-        for(auto x:p.second.adj){
-            g[x.codigo].grauDeChegada++;
-        }
-    } 
 }
 
 void print_grafo(grafo& g){
@@ -99,15 +91,39 @@ vector<int> dfs(grafo& g){
     return dfsResultado;
 }
 
-void caminho_critico(grafo& g, vector<int>& topologia){
-    map<int,int> finalizar;
-    vector<int> caminho;
-
-    for(auto p:g){
-        finalizar[p.first] = 0; 
+void todos_os_caminhos(grafo& g, int partida, map<int, bool>& visitados, map<int, int>& pesos, vector<int>& caminho, list<pair<vector<int>,int>>& todosCaminhos){
+    visitados[partida] = true;
+    caminho.push_back(partida);
+    
+    for(auto p:g[partida].adj){
+        pesos[p.codigo] = max(pesos[p.codigo], pesos[g[partida].codigo] + p.peso);
+        if(!visitados[p.codigo]){
+            todos_os_caminhos(g, p.codigo, visitados, pesos, caminho, todosCaminhos);
+        }
     }
 
-    
+    if(g[partida].grauDeSaida == 0){
+        pair<vector<int>, int> x;
+        x.first = caminho;
+        x.second = pesos[partida];
+        todosCaminhos.push_back(x);
+    }
+
+    visitados.clear();
+    caminho.pop_back();
+}
+
+void caminho_critico(grafo& g, vector<int>& topologia){
+    map<int, bool> visitados;
+    map<int, int> pesos;
+    vector<int> caminho;
+    list<pair<vector<int>, int>> todosCaminhos;
+    map<int, int> finalizar;
+
+    for(auto p:g){
+        finalizar[p.first] = 0;
+    }
+
     for(auto x:topologia){
         for(auto y:g){
             for(auto p:y.second.adj){
@@ -116,12 +132,42 @@ void caminho_critico(grafo& g, vector<int>& topologia){
         }
     }
 
-    cout << "peso do caminho critico: \n";
-
-    for(auto y:finalizar){
-        cout << "peso de " << g[y.first].nome << ":" << y.second << "\n";
+    for(auto p:g){
+        pesos[p.first] = p.second.peso;
     }
-    
+
+    for(auto x:topologia){
+        if(g[x].grauDeChegada != 0){
+            continue;
+        }
+        todos_os_caminhos(g, x, visitados, pesos, caminho, todosCaminhos);
+    }
+
+    int max = 0;
+    int max2 = 0;
+
+    for(auto x:finalizar){
+        if(x.second > max){
+            max = x.second;
+        }
+    }
+
+    for(auto x:finalizar){
+        if(x.second > max2 && x.second < max){
+            max2 = x.second;
+        }
+    }
 
     cout << "\n\n";
+    cout << "caminho de maiores pesos: " << max << " e " << max2 << "\n\n";
+
+    for(auto x:todosCaminhos){
+        for(auto p: x.first){
+            cout << p << " -> ";
+        }
+        cout << "peso = " << x.second - g[x.first.back()].peso  << "\n"; 
+    }
+
+    cout << "\n\n";
+
 }

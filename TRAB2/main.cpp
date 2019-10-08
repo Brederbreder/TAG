@@ -9,7 +9,6 @@ int main(){
 
     criar_vertices(g, "vertices.txt");
     criar_arestas(g, "arestas.txt");
-    graus_de_chegada(g);
 
     cout << "\n";
 
