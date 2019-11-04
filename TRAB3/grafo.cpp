@@ -32,13 +32,6 @@ void Grafo::criar_professores(){
             this->professores.push_back(p);
         }
     }
-    for(auto p:this->professores){
-        cout << "professor de nome: " << p.nome << " com habilitacao: " << p.habilitacao << " e com preferencia nas escolas: ";
-        for(auto x:p.interesse){
-            cout << x << " ";
-        }
-        cout << "\n";
-    }
 }
 
 void Grafo::criar_escolas(){
@@ -69,6 +62,19 @@ void Grafo::criar_escolas(){
             this->escolas.push_back(p);
         }
     }
+}
+
+void Grafo::print_grafo(){
+    for(auto p:this->professores){
+        cout << "professor de nome: " << p.nome << " com habilitacao: " << p.habilitacao << " e com preferencia nas escolas: ";
+        for(auto x:p.interesse){
+            cout << x << " ";
+        }
+        cout << "\n";
+    }
+
+    cout << "\n\n";
+
     for(auto p:this->escolas){
         cout << "nome da escola:" << p.nome << " ";
         cout << "com " << p.vagas << " vagas e com habilitacoes requisitadas: ";
@@ -76,5 +82,29 @@ void Grafo::criar_escolas(){
             cout <<  x << " ";
         }
         cout << "\n";
+    }
+}
+
+void Grafo::gale_shapley(){
+
+    for(auto &p:this->professores){
+        for(auto &e:this->escolas){
+            for(auto &x:p.interesse){
+                for(auto &y:e.habilitacoes){
+                    if(p.habilitacao == y && x == e.nome && e.vagas > 0 && p.contratado == 0){
+                        this->resultado.push_back(make_pair(e.nome, p.nome));
+                        e.vagas--;
+                        p.contratado = 1;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+void Grafo::print_resultado(){
+    for(auto p:this->resultado){
+        cout << p.first << " -> " << p.second << "\n";
     }
 }

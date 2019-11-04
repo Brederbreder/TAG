@@ -8,6 +8,7 @@ using namespace std;
 struct Professor{
     string nome;
     int habilitacao;
+    int contratado;
     vector<string> interesse;
 
     Professor(string nome, int habilitacao, vector<string> &interesse) {

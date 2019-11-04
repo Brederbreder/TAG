@@ -8,13 +8,18 @@
 using namespace std;
 
 class Grafo{
-    private:
+    // private:
+    public:
         vector<Escola> escolas;
         vector<Professor> professores;
+        vector<pair<string, string>> resultado;
+        map<string, vector<int>> match;
 
-    public:
         void criar_professores();
         void criar_escolas();
+        void print_grafo();
+        void gale_shapley();
+        void print_resultado();
 
 };
 
